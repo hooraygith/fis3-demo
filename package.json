@@ -1,0 +1,34 @@
+{
+  "name": "blog-cai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "del-cli dist -f && fis3 release -r src"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "del-cli": "*",
+    "fis-optimizer-uglify-js": "*",
+    "fis-parser-babel-6.x": "^6.20.0",
+    "fis-parser-less-2.x": "*",
+    "fis-preprocessor-browserify": "*",
+    "fis3-deploy-ftp": "*",
+    "fis3-deploy-skip-packed": "*",
+    "fis3-deploy-smart-alioss": "*",
+    "fis3-hook-commonjs": "*",
+    "fis3-hook-node_modules": "^2.2.8",
+    "fis3-hook-relative": "*",
+    "fis3-postpackager-loader": "*",
+    "fis3-preprocessor-autoprefixer": "*",
+    "vue": "*"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.4"
+  }
+}

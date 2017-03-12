@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的网站</title>
+    <link rel="stylesheet" href="./css/base.less">
+    <link rel="stylesheet" href="./css/page.less">
+    <link rel="stylesheet" href="./css/reset.less">
+    <link rel="stylesheet" href="./css/ui.less">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/slide.less">
+</head>
+<body>
+    <div id="app" class="page page-index ">
+
+        <header>
+            <div class="left">
+                <img src="./img/logo.gif">
+                <span>Gavin Cai</span>
+            </div>
+            <div class="right">
+                <a class="current" href="">PORTFOLIO</a>
+                <a href="">ABOUT</a>
+                <a href="">CONTACT</a>
+            </div>
+        </header>
+        <div class="main">
+            <section class="pics">
+                <h4>
+                    <a href="javascript:;"
+                        v-for="item in works"
+                        v-if="item.type !== 'article'"
+                        v-bind:class="{current: currentType === item.type}"
+                        v-on:click="changeType(item)">{{item.text}}</a>
+                </h4>
+                <div id="slideBox1" class="slideBox slideInit">
+                    <div class="bd">
+                        <ul id="slideMain">
+                            <!-- 这里绑定click是无效的，因为TouchSlide会把这些li干掉换上新的 -->
+                            <li data-slideitem
+                                v-for="item in typeMap[currentType].listPaged">
+                                <a class="pic" href="javascript:;"
+                                    v-for="subitem in item"
+                                    v-bind:data-articleid="subitem.id"
+                                    v-bind:style="{'background-image': 'url(' + subitem.img + ')'}">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hd">
+                        <ul></ul>
+                    </div>
+                </div>
+            </section>
+            <section class="articles">
+
+            </section>
+            <section class="contact">
+                <h4>Contact me</h4>
+                <div class="cards">
+                    <div class="card email">
+                        <div>
+                            <i class="fa fa-envelope-o"></i>
+                            <dl>
+                                <dt>Email</dt>
+                                <dd>gavincaiyj@gmail.com</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="card wechat">
+                        <div>
+                            <i class="fa fa-wechat"></i>
+                            <dl>
+                                <dt>Wechat</dt>
+                                <dd>cyj530889418</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="card qq">
+                        <div>
+                            <i class="fa fa-qq"></i>
+                            <dl>
+                                <dt>QQ</dt>
+                                <dd>1464905</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="card dribbble">
+                        <div>
+                            <i class="fa fa-dribbble"></i>
+                            <dl>
+                                <dt>Dribbble</dt>
+                                <dd>XXX</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <div>
+                <span>Designed by Gavincai  and built by  HY  with HTML5, CSS3, JQuery</span>
+            </div>
+            <div>
+                <div class="icons">
+                    <div class="icon">
+                        <i class="fa fa-weibo"></i>
+                        <span class="qr">
+                            <img src="./img/qr-weibo.png">
+                        </span>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-weixin"></i>
+                        <span class="qr">
+                            <img src="./img/qr-weixin.png">
+                        </span>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-qq"></i>
+                        <span class="qr">
+                            <img src="./img/qr-qq.png">
+                        </span>
+                    </div>
+                </div>
+                <a class="go-top" href="#">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+
+        <article-detail
+            v-show="isShowArticleDetail"
+            v-bind:article="currentArticle"
+            ></article-detail>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

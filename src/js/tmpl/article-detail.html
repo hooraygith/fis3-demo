@@ -1,0 +1,25 @@
+<div class="ui-article-detail">
+    <div class="mask"></div>
+    <div class="focus">
+        <div class="box">
+            <a href="javascript:;" class="nav-btn previous" v-show="isPrevExit()">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <div class="detail">
+                <a class="close" href="javascript:;" data-close="1">
+                    x
+                </a>
+                <div class="title">
+                    <h3>{{article.title}}</h3>
+                    <div class="tags">
+                        <span class="tag" v-for="item in article.tags">{{item}}</span>
+                    </div>
+                </div>
+                <div class="content" v-html="article.mdHTML"></div>
+            </div>
+            <a href="javascript:;" class="nav-btn next" v-show="isNextExit()">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>

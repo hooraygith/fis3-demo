@@ -1,0 +1,53 @@
+.slideInit li{
+    display: none;
+}
+.slideInit li:first-child{
+    display: block;
+}
+.slideBox {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.slideBox .hd {
+    position: absolute;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+}
+.slideBox .hd li {
+    display: inline-block;
+    width: 12px;
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(255,255,255,.5);
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 0 3px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.slideBox .hd li.on {
+    background: rgba(255,255,255,1);
+}
+.slideBox .bd {
+    position: relative;
+    z-index: 0;
+}
+.slideBox .bd li {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+}
+.slideBox .bd li a {
+    display: block;
+    background: center center no-repeat;
+    background-size: cover;
+    width: 25vw;
+    height: 27.14vw;
+}
